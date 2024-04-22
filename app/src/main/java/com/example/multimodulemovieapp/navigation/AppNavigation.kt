@@ -12,5 +12,9 @@ fun AppNavGraph(navController: NavHostController, navigationProviders: Navigatio
         navigationProviders.movieApi.registerGraph(
             navController, this
         )
+
+        navigationProviders.movieDetailsApi.registerGraph(
+            navController, this
+        )
     }
 }
