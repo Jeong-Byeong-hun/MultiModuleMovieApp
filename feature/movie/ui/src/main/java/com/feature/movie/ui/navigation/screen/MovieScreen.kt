@@ -10,7 +10,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -38,7 +41,7 @@ fun MovieScreen(viewModel: MovieSearchViewModel, navController: NavHostControlle
 
     Scaffold(topBar = {
         TextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(1f),
             value = query.value,
             onValueChange = {
                 viewModel.setQuery(it)
@@ -51,7 +54,15 @@ fun MovieScreen(viewModel: MovieSearchViewModel, navController: NavHostControlle
                     imageVector = Icons.Default.Search,
                     contentDescription = null
                 )
+
             }
+        )
+        Icon(
+            modifier = Modifier.clickable {
+                navController.navigate("now_playing_screen_route")
+            },
+            imageVector = Icons.Default.Home,
+            contentDescription = null
         )
     }) {
         Log.d("TAG", "MovieScreen: ${it}")
@@ -74,7 +85,8 @@ fun MovieScreen(viewModel: MovieSearchViewModel, navController: NavHostControlle
                     Text(text = "Nothing Found")
                 }
             } else {
-                LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 128.dp), content = {
+
+                LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 128.dp),content = {
                     items(it) {
                         Box(
                             modifier = Modifier
@@ -92,6 +104,7 @@ fun MovieScreen(viewModel: MovieSearchViewModel, navController: NavHostControlle
                         }
                     }
                 })
+
             }
         }
     }

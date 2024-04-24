@@ -23,6 +23,10 @@
             <option value="$PROJECT_DIR$/feature/movie_details/data" />
             <option value="$PROJECT_DIR$/feature/movie_details/domain" />
             <option value="$PROJECT_DIR$/feature/movie_details/ui" />
+            <option value="$PROJECT_DIR$/feature/playing_movie" />
+            <option value="$PROJECT_DIR$/feature/playing_movie/data" />
+            <option value="$PROJECT_DIR$/feature/playing_movie/domain" />
+            <option value="$PROJECT_DIR$/feature/playing_movie/ui" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
